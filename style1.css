@@ -1,0 +1,374 @@
+/* Global Styles */
+:root {
+    --primary-color: #000000cf;
+    --secondary-color: #fefefe;
+    --accent-color: #fbffff;
+    --light-color: #3d85b8;
+    --dark-color: #fdf6f6;
+    --success-color: #545cba;
+    --danger-color: #b33f4a;
+    --warning-color: #4c1d68;
+    --info-color: #703b9e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0f0215fc;
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: rgb(255, 255, 255);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgb(255, 255, 255);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo img {
+    height: 45px;
+    /* width: 65px; */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-weight: 550;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0 2px 5px rgb(255, 255, 255);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#logout-btn {
+    background-color: var(--danger-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#logout-btn:hover {
+    background-color: #9b1626;
+}
+
+main {
+    padding: 2rem;
+    min-height: calc(100vh - 120px);
+}
+
+section {
+    display: none;
+}
+
+section.active-section {
+    display: block;
+}
+
+footer {
+    background-color: black;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 1px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Dashboard Styles */
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.card {
+    background-color: rgb(0, 0, 0);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgb(247, 245, 245);
+}
+
+.card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.card p {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.card progress {
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+}
+
+.balance {
+    border-top: 4px solid var(--info-color);
+}
+
+.income {
+    border-top: 4px solid var(--success-color);
+}
+
+.expenses {
+    border-top: 4px solid var(--danger-color);
+}
+
+.savings {
+    border-top: 4px solid var(--accent-color);
+}
+
+.dashboard-charts {
+    display: grid;
+    grid-template-columns: minmax(30px, 800px) minmax(30px, 400px);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+}
+
+.chart-container {
+    background-color: rgb(14, 12, 12);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgb(255, 252, 252);
+}
+
+.chart-container h3 {
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.recent-transactions {
+    background-color: rgb(4, 0, 0);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgb(254, 255, 253);
+}
+
+.recent-transactions h3 {
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ffffff;
+}
+
+th {
+    background-color: #230d44;
+    font-weight: 500;
+}
+
+/* Form Styles */
+form {
+    background-color: rgb(0, 0, 0);
+    border-radius: 8px;
+    padding: 2.5rem;
+    box-shadow: 0 2px 10px rgb(255, 255, 255);
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #26152f;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+canvas {
+    width: 100% !important;
+    max-width: 600px;
+    height: 350px !important;
+    margin: 0 auto;
+    display: block;
+}
+
+button[type="submit"] {
+    background-color: rgb(66, 24, 99);
+    box-shadow: 0 2px 5px rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color:rgb(82, 46, 166);
+}
+
+/* Transaction List Styles */
+.filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.filters select {
+    flex: 1;
+}
+
+/* Goal Card Styles */
+.goals-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.goal-card {
+    background-color: rgb(64, 6, 90);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgb(255, 255, 255);
+    position: relative;
+}
+
+.goal-card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.goal-card p {
+    margin-bottom: 0.5rem;
+}
+
+.goal-card progress {
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    margin: 0.5rem 0;
+}
+
+.goal-card button {
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.edit-goal {
+    background-color:rgb(75, 58, 93);
+    color: rgb(247, 247, 249);
+}
+
+.delete-goal {
+    background-color: rgb(173, 36, 36);
+    color: white;
+}
+
+/* Alert Notification */
+#alert-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: black;
+    color: rgb(255, 255, 255);
+    padding: 1rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgb(255, 251, 251);
+    z-index: 1000;
+    max-width: 400px;
+}
+
+#alert-notification.hidden {
+    display: none;
+}
+
+#close-alert {
+    background: none;
+    border: none;
+    color: rgb(255, 255, 255);
+    box-shadow: 0 2px 10px rgb(255, 251, 251);
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    nav ul {
+        gap: 0.5rem;
+    }
+
+    .dashboard-charts {
+        grid-template-columns: 1fr;
+    }
+
+    .filters {
+        flex-direction: column;
+    }
+}

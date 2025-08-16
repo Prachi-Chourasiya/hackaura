@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyMinder - Personal Finance Tracker</title>
+    <link rel="stylesheet" href="style1.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://i.pinimg.com/originals/e9/57/31/e95731539600c2ece07106c5f8d7c9f2.jpg" alt="MoneyMinder Logo">
+            <h3>MoneyMinder</h3>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active" id="dashboard-link">Dashboard</a></li>
+                <li><a href="#" id="transactions-link">Transactions</a></li>
+                <li><a href="#" id="goals-link">Goals</a></li>
+                <li><a href="#" id="reports-link">Reports</a></li>
+            </ul>
+        </nav>
+        <div class="user-profile">
+            <span><h4>Welcome User</h4></span>
+            <button id="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="active-section">
+            <div class="summary-cards">
+                <div class="card balance">
+                    <h3>Current Balance</h3>
+                    <p id="current-balance">25,000 Rs</p>
+                </div>
+                <div class="card income">
+                    <h3>Total Income</h3>
+                    <p id="total-income">50,000 Rs</p>
+                </div>
+                <div class="card expenses">
+                    <h3>Total Expenses</h3>
+                    <p id="total-expenses">25,000 Rs</p>
+                </div>
+                <div class="card savings">
+                    <h3>Savings Goal</h3>
+                    <p id="savings-goal">20,000 Rs</p>
+                    <progress id="savings-progress" value="45" max="100"></progress>
+                </div>
+            </div>
+
+            <div class="dashboard-charts">
+                <div class="chart-container">
+                    <h3>Monthly Spending</h3>
+                    <canvas id="monthly-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Expense Categories</h3>
+                    <canvas id="category-chart"></canvas>
+                </div>
+            </div>
+
+            <div class="recent-transactions">
+                <h3>Recent Transactions</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Category</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recent-transactions-body">
+                        <!-- Filled by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Transactions Section -->
+        <section id="transactions">
+            <h2>Add New Transaction</h2>
+            <form id="transaction-form">
+                <div class="form-group">
+                    <label for="transaction-type">Type</label>
+                    <select id="transaction-type" required>
+                        <option value="">Select Type</option>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="transaction-amount">Amount</label>
+                    <input type="number" id="transaction-amount" placeholder="0.00" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="transaction-category">Category</label>
+                    <select id="transaction-category" required>
+                        <option value="">Select Category</option>
+                        <!-- Filled by JavaScript -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="transaction-date">Date</label>
+                    <input type="date" id="transaction-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="transaction-description">Description</label>
+                    <input type="text" id="transaction-description" placeholder="Optional description">
+                </div>
+                <button type="submit">Add Transaction</button>
+            </form>
+
+            <div class="transaction-list">
+                <h2>All Transactions</h2>
+                <div class="filters">
+                    <select id="filter-month">
+                        <option value="all">All Months</option>
+                        <!-- Filled by JavaScript -->
+                    </select>
+                    <select id="filter-category">
+                        <option value="all">All Categories</option>
+                        <!-- Filled by JavaScript -->
+                    </select>
+                    <select id="filter-type">
+                        <option value="all">All Types</option>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Category</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="all-transactions-body">
+                        <!-- Filled by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Goals Section -->
+        <section id="goals">
+            <h2>Savings Goals</h2>
+            <form id="goal-form">
+                <div class="form-group">
+                    <label for="goal-name">Goal Name</label>
+                    <input type="text" id="goal-name" placeholder="e.g., Vacation Fund" required>
+                </div>
+                <div class="form-group">
+                    <label for="goal-target">Target Amount</label>
+                    <input type="number" id="goal-target" placeholder="0.00" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="goal-deadline">Target Date</label>
+                    <input type="date" id="goal-deadline" required>
+                </div>
+                <button type="submit">Add Goal</button>
+            </form>
+
+            <div class="goals-list">
+                <div class="goal-card">
+                    <h3>Emergency Fund</h3>
+                    <p>Target: 5,00,000 Rs </p>
+                    <p>Saved: 2,45,000 Rs</p>
+                    <progress value="49" max="100"></progress>
+                    <p>Deadline: Dec 2025</p>
+                    <button class="edit-goal">Edit</button>
+                    <button class="delete-goal">Delete</button>
+                </div>
+                <!-- More goals would be added here -->
+            </div>
+        </section>
+
+        <!-- Reports Section -->
+        <section id="reports">
+            <h2>Financial Reports</h2>
+            <div class="report-filters">
+                <select id="report-type">
+                    <option value="monthly">Monthly Summary</option>
+                    <option value="category">Category Breakdown</option>
+                    <option value="yearly">Yearly Comparison</option>
+                </select>
+                <select id="report-period">
+                    <!-- Filled by JavaScript -->
+                </select>
+                <button id="generate-report">Generate Report</button>
+            </div>
+
+            <div class="report-results">
+                <canvas id="report-chart"></canvas>
+                <div id="report-data">
+                    <!-- Filled by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Alert Notification -->
+        <div id="alert-notification" class="hidden">
+            <span id="alert-message"></span>
+            <button id="close-alert">×</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 MoneyMinder | Quantum coder</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
